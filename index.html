@@ -35,8 +35,53 @@
             }
 
             console.log(getHumanChoice())
-        let humanScore = 0
-        let computerScore = 0
+        
+        function playGame() {
+            let humanScore = 0;
+            let computerScore = 0;
+
+            function playRound(humanChoice, computerChoice) {
+                console.log("Human Choice: " + humanChoice);
+                console.log("Computer Choice: " + computerChoice);
+
+                if (humanChoice === "error") {
+                    return "Invalid choice by human!";
+                }
+
+                if (humanChoice === computerChoice) {
+                    return "It's a tie!";
+                } else if (
+                    (humanChoice === "rock" && computerChoice === "scissors") ||
+                    (humanChoice === "paper" && computerChoice === "rock") ||
+                    (humanChoice === "scissors" && computerChoice === "paper")
+                ) {
+                    humanScore++;
+                    return "Human wins!";
+                } else {
+                    computerScore++;
+                    return "Computer wins!";
+                }
+            }
+
+            for (let i = 0; i < 5; i++) {
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+
+                const result = playRound(humanSelection, computerSelection);
+                console.log(result);
+                console.log("Human Score: " + humanScore);
+                console.log("Computer Score: " + computerScore);
+            }
+
+            if (humanScore > computerScore) {
+                console.log("Overall winner: Human!");
+            } else if (computerScore > humanScore) {
+                console.log("Overall winner: Computer!");
+            } else {
+                console.log("Overall result: It's a tie!");
+            }
+            }
+            playGame();
     </script>
 </body>
 </html>
