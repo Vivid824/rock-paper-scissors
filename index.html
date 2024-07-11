@@ -20,6 +20,21 @@
         }
         
         console.log(getComputerChoice())
+
+        function getHumanChoice(){
+            let selection = prompt("Choose rock, paper, or scissors!","")
+            if (selection.toLowerCase() === "rock") {
+                return "rock"
+            } else if  (selection.toLowerCase() === "paper") {
+                return "paper"
+            } else if (selection.toLowerCase() === "scissors") {
+                return "scissors"
+            } else {
+                return "error"
+            }
+            }
+
+            console.log(getHumanChoice())
     </script>
 </body>
 </html>
